@@ -375,6 +375,97 @@ h3 {
   font-size: 0.92rem;
 }
 
+.visual-strip {
+  padding-top: 22px;
+}
+
+.stat-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.stat-card {
+  display: grid;
+  gap: 10px;
+  min-height: 150px;
+  padding: 20px;
+  border: 1px solid rgba(20, 20, 20, 0.1);
+  border-radius: var(--radius-lg);
+  background:
+    linear-gradient(180deg, rgba(207, 23, 28, 0.08), rgba(255, 252, 246, 0.96)),
+    var(--surface-strong);
+  box-shadow: var(--shadow);
+}
+
+.stat-value {
+  font-family: "IBM Plex Serif", Georgia, serif;
+  font-size: 2.2rem;
+  line-height: 1;
+  color: var(--accent-deep);
+}
+
+.stat-label {
+  max-width: 24ch;
+  color: var(--ink-soft);
+}
+
+.capability-diagram {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 56px minmax(0, 1fr) 56px minmax(0, 1fr);
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 18px;
+}
+
+.diagram-node {
+  display: grid;
+  gap: 8px;
+  min-height: 140px;
+  padding: 18px;
+  border: 1px solid rgba(20, 20, 20, 0.1);
+  border-radius: var(--radius-lg);
+  background: var(--surface-strong);
+  box-shadow: var(--shadow);
+}
+
+.diagram-node span {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.diagram-node strong {
+  font-size: 1rem;
+  line-height: 1.4;
+}
+
+.diagram-node-accent {
+  background:
+    linear-gradient(180deg, rgba(207, 23, 28, 0.1), rgba(255, 252, 246, 0.98)),
+    var(--surface-strong);
+}
+
+.diagram-arrow {
+  position: relative;
+  height: 2px;
+  background: rgba(20, 20, 20, 0.18);
+}
+
+.diagram-arrow::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: 0;
+  width: 12px;
+  height: 12px;
+  border-top: 2px solid var(--accent);
+  border-right: 2px solid var(--accent);
+  transform: translateY(-50%) rotate(45deg);
+}
+
 .section-heading {
   display: grid;
   gap: 12px;
@@ -505,6 +596,7 @@ h3 {
   .hero,
   .contact-panel,
   .card-grid-services,
+  .stat-grid,
   .project-grid,
   .approach-layout {
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -569,10 +661,29 @@ h3 {
 
   .hero,
   .card-grid-services,
+  .stat-grid,
   .project-grid,
   .approach-layout,
   .contact-panel {
     grid-template-columns: 1fr;
+  }
+
+  .capability-diagram {
+    grid-template-columns: 1fr;
+  }
+
+  .diagram-arrow {
+    width: 2px;
+    height: 28px;
+    justify-self: center;
+  }
+
+  .diagram-arrow::after {
+    top: auto;
+    bottom: 0;
+    left: 50%;
+    right: auto;
+    transform: translateX(-50%) rotate(135deg);
   }
 
   .hero {
