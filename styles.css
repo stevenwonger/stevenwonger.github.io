@@ -12,7 +12,7 @@
   --radius-xl: 34px;
   --radius-lg: 24px;
   --radius-md: 18px;
-  --max-width: 1200px;
+  --max-width: 1320px;
 }
 
 * {
@@ -26,7 +26,7 @@ html {
 body {
   margin: 0;
   min-width: 320px;
-  font-family: "Space Grotesk", "Segoe UI", sans-serif;
+  font-family: "IBM Plex Sans", "Segoe UI", sans-serif;
   color: var(--ink);
   background:
     radial-gradient(circle at top left, rgba(207, 23, 28, 0.08), transparent 30%),
@@ -64,9 +64,9 @@ a {
 }
 
 .page-shell {
-  width: min(calc(100% - 32px), var(--max-width));
+  width: min(calc(100% - 24px), var(--max-width));
   margin: 0 auto;
-  padding-bottom: 64px;
+  padding-bottom: 44px;
 }
 
 .site-header {
@@ -113,6 +113,7 @@ a {
 .brand-text strong {
   font-size: 1rem;
   line-height: 1.05;
+  font-weight: 600;
 }
 
 .brand-text span {
@@ -127,6 +128,7 @@ a {
   align-items: center;
   gap: 24px;
   font-size: 0.95rem;
+  font-weight: 500;
 }
 
 .site-nav a {
@@ -153,15 +155,15 @@ a {
 }
 
 .section {
-  padding: 56px 0;
+  padding: 36px 0;
 }
 
 .hero {
   display: grid;
   grid-template-columns: 1.15fr 0.85fr;
   align-items: center;
-  gap: 36px;
-  min-height: calc(100vh - 104px);
+  gap: 24px;
+  min-height: calc(78vh - 104px);
 }
 
 .eyebrow {
@@ -183,38 +185,53 @@ strong {
 h1,
 h2 {
   margin: 0;
-  font-family: "Fraunces", Georgia, serif;
-  letter-spacing: -0.04em;
+  font-family: "IBM Plex Serif", Georgia, serif;
+  letter-spacing: -0.025em;
+  font-weight: 600;
 }
 
 h1 {
-  max-width: 12ch;
-  font-size: clamp(3.5rem, 8vw, 6.4rem);
-  line-height: 0.95;
+  max-width: 22ch;
+  font-size: 3.6rem;
+  line-height: 1.22;
 }
 
 h2 {
-  max-width: 14ch;
-  font-size: clamp(2.2rem, 4vw, 3.6rem);
-  line-height: 1;
+  max-width: 28ch;
+  font-size: 3rem;
+  line-height: 1.3;
 }
 
 h3 {
   margin: 0 0 12px;
-  font-size: 1.2rem;
+  font-size: 1rem;
+  font-weight: 600;
 }
 
 .lede {
   max-width: 58ch;
   margin-top: 24px;
-  font-size: 1.05rem;
+  font-size: 0.96rem;
+}
+
+.hero-copy h1 {
+  max-width: 24ch;
+  font-size: 3.45rem;
+  line-height: 1.28;
+}
+
+.section-heading h2,
+.contact-panel h2 {
+  max-width: 32ch;
+  font-size: 2.94rem;
+  line-height: 1.34;
 }
 
 .hero-actions {
   display: flex;
   flex-wrap: wrap;
   gap: 14px;
-  margin-top: 30px;
+  margin-top: 24px;
 }
 
 .button {
@@ -227,6 +244,21 @@ h3 {
   border: 1px solid transparent;
   font-weight: 700;
   transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+}
+
+.icon-button {
+  min-width: 52px;
+  width: 52px;
+  padding: 0;
+  border-radius: 999px;
+}
+
+.icon-button svg,
+.inline-icon-link svg {
+  width: 18px;
+  height: 18px;
+  fill: currentColor;
+  flex: 0 0 auto;
 }
 
 .button:hover,
@@ -246,8 +278,8 @@ h3 {
 
 .signal-list {
   display: grid;
-  gap: 12px;
-  margin: 30px 0 0;
+  gap: 10px;
+  margin: 22px 0 0;
   padding: 0;
   list-style: none;
 }
@@ -269,12 +301,15 @@ h3 {
 }
 
 .hero-visual {
-  position: relative;
-  min-height: 620px;
+  display: grid;
+  align-content: center;
+  justify-items: stretch;
+  gap: 18px;
+  min-height: 500px;
+  padding: 10px 0 10px 20px;
 }
 
 .hero-panel {
-  position: absolute;
   border: 1px solid rgba(20, 20, 20, 0.1);
   border-radius: var(--radius-xl);
   background: var(--surface);
@@ -283,8 +318,9 @@ h3 {
 }
 
 .hero-panel-logo {
-  inset: 5% 0 auto 12%;
-  padding: 28px;
+  position: relative;
+  width: min(100%, 560px);
+  padding: 22px;
   animation: drift 8s ease-in-out infinite;
 }
 
@@ -293,12 +329,12 @@ h3 {
 }
 
 .hero-panel-metrics {
-  right: 10%;
-  bottom: 6%;
-  width: min(100%, 360px);
-  padding: 26px;
+  position: relative;
+  justify-self: end;
+  width: 320px;
+  padding: 22px;
   display: grid;
-  gap: 18px;
+  gap: 14px;
   animation: drift 9s ease-in-out infinite reverse;
 }
 
@@ -316,7 +352,7 @@ h3 {
 .metric-label,
 .contact-meta span {
   margin-bottom: 10px;
-  font-size: 0.72rem;
+  font-size: 0.68rem;
   font-weight: 700;
   color: var(--accent);
 }
@@ -325,7 +361,7 @@ h3 {
   display: flex;
   flex-wrap: wrap;
   gap: 12px;
-  padding: 18px;
+  padding: 14px;
   border: 1px solid var(--line);
   border-radius: var(--radius-lg);
   background: rgba(255, 255, 255, 0.5);
@@ -341,14 +377,14 @@ h3 {
 .section-heading {
   display: grid;
   gap: 12px;
-  margin-bottom: 28px;
+  margin-bottom: 20px;
 }
 
 .card-grid,
 .project-grid,
 .approach-layout {
   display: grid;
-  gap: 20px;
+  gap: 16px;
 }
 
 .card-grid-services {
@@ -366,8 +402,8 @@ h3 {
 }
 
 .info-card {
-  min-height: 220px;
-  padding: 26px;
+  min-height: 180px;
+  padding: 22px;
 }
 
 .project-grid {
@@ -377,8 +413,8 @@ h3 {
 .project-card {
   display: grid;
   align-content: start;
-  gap: 16px;
-  padding: 22px;
+  gap: 12px;
+  padding: 18px;
 }
 
 .project-card img {
@@ -399,12 +435,12 @@ h3 {
 }
 
 .approach-card {
-  min-height: 240px;
-  padding: 26px;
+  min-height: 200px;
+  padding: 22px;
 }
 
 .approach-card span {
-  margin-bottom: 34px;
+  margin-bottom: 22px;
   font-size: 0.95rem;
   color: var(--accent);
 }
@@ -412,18 +448,24 @@ h3 {
 .contact-panel {
   display: grid;
   grid-template-columns: 1.25fr 0.75fr;
-  gap: 24px;
-  padding: 28px;
+  gap: 20px;
+  padding: 22px;
 }
 
 .contact-panel h2 {
-  margin-bottom: 18px;
+  margin-bottom: 12px;
 }
 
 .contact-meta {
   display: grid;
-  gap: 20px;
-  padding: 12px 0;
+  gap: 16px;
+  padding: 6px 0;
+}
+
+.inline-icon-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
 }
 
 .reveal {
@@ -474,12 +516,21 @@ h3 {
 
   .hero-visual {
     min-height: 520px;
+    padding-left: 0;
+  }
+
+  .hero-panel-logo {
+    width: 100%;
+  }
+
+  .hero-panel-metrics {
+    width: 300px;
   }
 }
 
 @media (max-width: 760px) {
   .page-shell {
-    width: min(calc(100% - 22px), var(--max-width));
+    width: min(calc(100% - 18px), var(--max-width));
   }
 
   .site-header {
@@ -512,7 +563,7 @@ h3 {
   }
 
   .section {
-    padding: 42px 0;
+    padding: 28px 0;
   }
 
   .hero,
@@ -524,32 +575,37 @@ h3 {
   }
 
   .hero {
-    gap: 22px;
+    gap: 16px;
   }
 
   .hero-visual {
-    min-height: 420px;
+    min-height: 340px;
+    padding: 0;
   }
 
   .hero-panel-logo {
-    left: 0;
-    right: 0;
     padding: 20px;
+    width: 100%;
   }
 
   .hero-panel-metrics {
-    right: 0;
-    left: 0;
-    bottom: 0;
+    justify-self: stretch;
     width: auto;
   }
 
   h1 {
-    max-width: 10ch;
-    font-size: clamp(2.9rem, 15vw, 4.6rem);
+    max-width: 100%;
+    font-size: 3.15rem;
   }
 
   h2 {
+    max-width: 100%;
+    font-size: 2.85rem;
+  }
+
+  .hero-copy h1,
+  .section-heading h2,
+  .contact-panel h2 {
     max-width: 100%;
   }
 
