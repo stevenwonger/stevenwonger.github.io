@@ -20,13 +20,14 @@
 }
 
 html {
-  font-size: 150%;
+  font-size: clamp(100%, 0.55vw + 0.92rem, 150%);
   scroll-behavior: smooth;
 }
 
 body {
   margin: 0;
   min-width: 320px;
+  overflow-x: hidden;
   font-family: "IBM Plex Sans", "Segoe UI", sans-serif;
   color: var(--ink);
   background:
@@ -73,6 +74,7 @@ p {
 a {
   color: inherit;
   text-decoration: none;
+  overflow-wrap: anywhere;
 }
 
 .page-shell {
@@ -255,6 +257,7 @@ h3 {
   border-radius: 999px;
   border: 1px solid transparent;
   font-weight: 700;
+  text-align: center;
   transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease;
 }
 
@@ -693,6 +696,14 @@ h3 {
     padding-top: 34px;
   }
 
+  .hero-copy h1 {
+    font-size: 2.16rem;
+  }
+
+  .lede {
+    max-width: 52ch;
+  }
+
   .hero-visual {
     min-height: 520px;
     padding-left: 0;
@@ -717,13 +728,15 @@ h3 {
 
 @media (max-width: 760px) {
   .page-shell {
-    width: min(calc(100% - 18px), var(--max-width));
+    width: min(calc(100% - 28px), var(--max-width));
   }
 
   .site-header {
     position: static;
     flex-direction: column;
     align-items: flex-start;
+    gap: 16px;
+    padding: 14px 0 8px;
   }
 
   .site-header::before {
@@ -745,8 +758,10 @@ h3 {
   }
 
   .site-nav {
+    width: 100%;
     flex-wrap: wrap;
-    gap: 14px 18px;
+    gap: 10px 16px;
+    font-size: 0.86rem;
   }
 
   .section {
@@ -784,19 +799,26 @@ h3 {
     gap: 16px;
   }
 
+  .eyebrow {
+    margin-bottom: 12px;
+    font-size: 0.68rem;
+    letter-spacing: 0.16em;
+  }
+
   .hero-visual {
-    min-height: 340px;
+    min-height: 0;
     padding: 0;
   }
 
   .hero-panel-logo {
-    padding: 20px;
+    padding: 18px;
     width: 100%;
   }
 
   .hero-panel-metrics {
     justify-self: stretch;
     width: auto;
+    padding: 18px;
   }
 
   .process-track {
@@ -805,12 +827,14 @@ h3 {
 
   h1 {
     max-width: 100%;
-    font-size: 2.205rem;
+    font-size: 1.82rem;
+    line-height: 1.18;
   }
 
   h2 {
     max-width: 100%;
-    font-size: 1.995rem;
+    font-size: 1.56rem;
+    line-height: 1.22;
   }
 
   .hero-copy h1,
@@ -819,8 +843,109 @@ h3 {
     max-width: 100%;
   }
 
+  .lede {
+    margin-top: 18px;
+    font-size: 0.9rem;
+  }
+
+  .hero-actions {
+    gap: 10px;
+  }
+
+  .button:not(.icon-button) {
+    width: 100%;
+  }
+
+  .contact-actions {
+    align-items: stretch;
+  }
+
+  .signal-list {
+    gap: 8px;
+  }
+
+  .signal-list li {
+    align-items: flex-start;
+    font-size: 0.9rem;
+  }
+
+  .stat-card,
+  .info-card,
+  .project-card,
+  .approach-card,
+  .contact-panel {
+    padding: 18px;
+  }
+
+  .stat-card,
+  .info-card,
+  .approach-card {
+    min-height: 0;
+  }
+
   .project-card img {
     height: 60px;
+  }
+
+  .process-step {
+    padding: 0;
+  }
+
+  .process-step p {
+    max-width: 100%;
+  }
+
+  .contact-meta {
+    gap: 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .page-shell {
+    width: min(calc(100% - 22px), var(--max-width));
+  }
+
+  .brand {
+    gap: 10px;
+  }
+
+  .brand-text span {
+    letter-spacing: 0.1em;
+  }
+
+  .site-nav {
+    gap: 8px 14px;
+  }
+
+  .section {
+    padding: 24px 0;
+  }
+
+  h1 {
+    font-size: 1.62rem;
+  }
+
+  h2 {
+    font-size: 1.42rem;
+  }
+
+  .marquee-band {
+    padding: 12px;
+  }
+
+  .marquee-band span {
+    width: 100%;
+    text-align: center;
+  }
+
+  .hero-panel-logo,
+  .hero-panel-metrics,
+  .stat-card,
+  .info-card,
+  .project-card,
+  .approach-card,
+  .contact-panel {
+    border-radius: 20px;
   }
 }
 
